@@ -1,0 +1,21 @@
+.storeProfile .storeImage {
+    height: 200px; /* Adjust this height as needed */
+    width: 100%;  /* Adjust this width as needed */
+    overflow: hidden; /* Ensures the image does not overflow the parent div */
+    position: relative;
+}
+
+.storeProfile .storeImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+    /* position: absolute;  */
+    /* top: 0;
+    left: 0; */
+}
+/* .storeProfile .profile .avatar{
+    max-height: 200px;
+    min-height: 150px;
+    max-width: 180px;
+    min-width: 140px;
+} */

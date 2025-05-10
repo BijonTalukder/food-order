@@ -1,0 +1,46 @@
+.StoreCart .kitchenImage{
+        position: relative;
+        max-height: 160px;
+        /* width: 238px; */
+        /* flex-shrink: 0; */
+        overflow: hidden;
+    /* max-width: 250px; */
+/* position: relative; */
+}
+.StoreCart .kitchenImage img{
+width: 100%;
+}
+.StoreCart .image{
+    position: relative;
+}
+/* .StoreCart .kitchenImage .userImage{
+    position: absolute;
+    right: 0;
+} */
+.StoreCart .kitchenImage .bottom-wave{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    overflow: hidden;
+    bottom: -2px;
+    left: 0px;
+    color: white;
+
+    }
+    .StoreCart .kitchenImage .bottom-wave .sc-gEzdPt {
+        fill: white;
+    }
+.StoreCart  .image .userImage{
+    position: absolute;
+    /* top: 40px; */
+    z-index: 99;
+    bottom:-50px;
+    right: 10px;
+    /* left: 2px; */
+}
+.StoreCart .body{
+padding: 5px 10px;
+max-width: 250px;
+}

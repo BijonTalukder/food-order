@@ -1,0 +1,138 @@
+input:focus,textarea:focus{
+  outline: none;
+ }
+ 
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #23242a;
+}
+.registration .box{
+  overflow: hidden;
+  width: 380px;
+  height: 420px;
+  background-color: #1c1c1c;
+  position: relative;
+}
+.registration .box::after{
+  top: -50%;
+  left: -50%;
+  content: '';
+  height: 420px;
+
+  /* animation-delay: -1s; */
+  width: 380px;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(0deg, transparent,transparent,#45f3ff,#45f3ff);
+ transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+} 
+.registration .box::before{
+  top: -50%;
+  left: -50%;
+  content: '';
+  height: 420px;
+
+  animation-delay: -3s!important;
+  width: 380px;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(0deg, transparent,transparent,#f6782a,#45f3ff);
+ transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+} 
+@keyframes animate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.registration .box form{
+  position: absolute;
+  inset: 4px;
+  background-color: #222;
+  color: #222;
+  border-radius: 8px;
+  z-index: 2;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.registration .box form h2{
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.registration .box form .inputBox{
+
+  position: relative;
+  width: 300px;
+  margin-top: 35px;
+  
+}
+.registration .box form .inputBox input{
+  position: relative;
+  width: 100%;
+  border: none;
+  color: #23242a;
+  padding: 20px 10px 10px;
+  background: transparent;
+  transition: 0.5s;
+  z-index: 10;
+}
+.registration .box form .inputBox  span
+{
+  position: absolute;
+  left: 0;
+  color: #8f8f8f;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.registration .box form .inputBox input:valid ~ span,
+.registration .box form .inputBox input:focus ~ span
+{
+  color: #fff;
+  font-size: 0.75em;
+  transform: translateY(-34px);
+}
+
+.registration .box form .inputBox i{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  height: 2px;
+  transition: 0.5s;
+  pointer-events: none;
+  overflow: hidden;
+}
+.registration .box form .inputBox input:valid ~ i,
+.registration .box form .inputBox input:focus ~ i{
+  height: 44px;
+}
+
+.registration .box form input[type="submit"]{
+  /* position: absolute; */
+  margin: 20px 0px 0px 0px;
+  padding: 10px;
+  width: 300px;
+  color: #353434;
+  background-color: white;
+  /* pointer-events: painted; */
+  cursor: pointer;
+  transition: 0.5s linear;
+
+}
+.box form input[type="submit"]:hover{
+  background: linear-gradient(45deg, rgb(41, 219, 41), rgb(162, 169, 18));
+  color: #fff;
+  background-position: 45deg;
+}
