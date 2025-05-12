@@ -8,6 +8,7 @@ import { ProductRouter } from '../modules/product/product.routes'
 import { CartRouter } from '../modules/cart/cart.routes'
 import { orderRouter } from '../modules/orders/order.route'
 import { paymentController } from '../modules/payment/payment.controller'
+import riderRouter from '../modules/rider/riders.routes'
 const router = express.Router()
 router.use('/books',BooksRoute)
 router.use('/user',UserRoute)
@@ -17,6 +18,7 @@ router.use('/stores',storeRouter)
 router.use("/product",ProductRouter)
 router.use("/cart",CartRouter)
 router.use("/order",orderRouter)
+router.use("/riders",riderRouter)
 
 router.post("/success", paymentController.handlePaymentSuccess);
 

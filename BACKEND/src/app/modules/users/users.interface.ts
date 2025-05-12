@@ -1,11 +1,18 @@
 import { Model } from "mongoose"
 
+
+export enum UserRole {
+    USER = 'user',
+    KITCHEN = 'kitchen',
+    RIDER = 'rider',
+  }
 export type IUser ={
     id:string,
     name:string,
-    role:string,
+    role:UserRole,
     email:string,
-    password:string
+    password:string,
+    phone:string,
 
 }
 
