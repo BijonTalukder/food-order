@@ -14,9 +14,7 @@ const LogIn = async (payload: ILogInUser) => {
   const { email, password } = payload;
 
   const isEmailExist = await UserModel.exists({ email });
-  // console.log(1)
   const isPasswordExist = await UserModel.exists({ password });
-  // console.log(isPasswordExist)
 
   if (!isEmailExist) {
     throw new ApiError(httpsStatus.NOT_FOUND, "email not found");
@@ -41,11 +39,7 @@ const LogIn = async (payload: ILogInUser) => {
     }
   ])
   
-  // findOne({
-  //   email: email,
-  //   password: password,
-  // });
-  console.log(userExist);
+
 
   if (userExist) {
     const payload = { email: userExist[0].email, role: userExist[0].role };
@@ -53,9 +47,9 @@ const LogIn = async (payload: ILogInUser) => {
     return {
       status: httpsStatus.OK,
       user: {
-        id: userExist[0]._id,
-        email: userExist[0].email,
-        storeId:userExist[0].store[0]._id|| null
+        id: userExist[0]?._id,
+        email: userExist[0]?.email,
+        storeId:userExist[0]?.store[0]?._id|| null
       },
       token: jwtToken
 
