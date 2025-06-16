@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../../errors/ApiError';
 import initializeSslPayment from '../../../helpers/paymentGateway/initializeSslPayment';
 import pick from '../../../shared/pick';
+import catchAsync from '../../../shared/catchAsync';
 // Create a new order
 const createOrder = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -158,11 +159,39 @@ const getOrderByUser = async (req: Request, res: Response, next: NextFunction) =
         next(error);
     }
 }
+const getOrderByRider = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const riderId = req.params.id;
+
+    // Validate the riderId
+    if (!Types.ObjectId.isValid(riderId)) {
+        throw new ApiError(httpsStatus.BAD_REQUEST, "Invalid rider ID");
+    }
+        const filters = pick(req.query, ["searchTerm","orderStatus"])
+        const options = pick(req.query, ["limit", "page", "sortBy", "sortOrder"])
+    // Fetch orders assigned to the rider
+    const orders = await orderService.getOrdersByRider(riderId);
+
+    if (!orders || orders.length === 0) {
+        return res.status(httpsStatus.NOT_FOUND).json({
+            statusCode: httpsStatus.NOT_FOUND,
+            success: false,
+            message: "No orders found for this rider",
+        });
+    }
+
+    res.status(httpsStatus.OK).json({
+        statusCode: httpsStatus.OK,
+        success: true,
+        message: "Orders retrieved successfully for the rider!",
+        data: orders,
+    });
+})
 // Export the order controller
 export const orderController = {
     createOrder,
     getAllOrders,
     getOrdersByStore,
     getOrderByUser,
-    updateOrder
+    updateOrder,
+    getOrderByRider
 };

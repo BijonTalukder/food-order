@@ -114,10 +114,13 @@ const getOrdersByUser= async (userId: string) => {
     ]);
     return result;
   };
+
+  const getOrdersByRider = async (riderId: string) => {}
 // Export the order service
 export const orderService = {
   createOrder,
   getAllOrders,
   getOrdersByStore,
-  getOrdersByUser,updateOrder
+  getOrdersByUser,updateOrder,
+  getOrdersByRider
 };

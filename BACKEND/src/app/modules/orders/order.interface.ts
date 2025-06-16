@@ -37,6 +37,7 @@ export interface IOrder extends Document {
     orderId: string,
     userId: mongoose.Types.ObjectId,
     storeId: mongoose.Types.ObjectId,
+    riderId?: mongoose.Types.ObjectId,
     items: IOrderItem[],
     orderStatus: OrderStatus,
     paymentStatus: PaymentStatus,

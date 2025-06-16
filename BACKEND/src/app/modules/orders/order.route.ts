@@ -7,6 +7,7 @@ router.get("/", orderController.getAllOrders);
 router.put("/:id",orderController.updateOrder)
 router.get("/store/:id", orderController.getOrdersByStore)
 router.get("/user/:id", orderController.getOrderByUser)
+router.get("/rider/:id", orderController.getOrderByRider)
 // router.get("/seller/:id",orderController.getOrderBySeller)
 
 export const orderRouter = router 

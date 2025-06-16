@@ -46,6 +46,10 @@ const orderSchema = new Schema<IOrder>({
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
+    riderId:{
+          type: mongoose.Schema.Types.ObjectId,
+    },
+
     items: {
         type: [orderItemSchema],
         required: true
